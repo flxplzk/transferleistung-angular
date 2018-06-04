@@ -1,9 +1,11 @@
 package de.nordakademie.flxplzk.transferleistungangular.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 
 @Entity
-public class Product extends RestResource{
+public class Product extends RestResource {
 
     private String name;
     private long priceInCents;
@@ -13,14 +15,9 @@ public class Product extends RestResource{
         // JPA Constructor
     }
 
-    public Product(String name, long priceInCents, boolean active) {
-        this.name = name;
-        this.priceInCents = priceInCents;
-        this.active = active;
-    }
-
-    public Product(long id, String name, long priceInCents, boolean active) {
-        super(id);
+    public Product(@JsonProperty("name") final String name,
+                   @JsonProperty("priceInCents") final long priceInCents,
+                   @JsonProperty("active") final boolean active) {
         this.name = name;
         this.priceInCents = priceInCents;
         this.active = active;

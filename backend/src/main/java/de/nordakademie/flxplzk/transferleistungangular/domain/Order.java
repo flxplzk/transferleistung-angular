@@ -1,5 +1,7 @@
 package de.nordakademie.flxplzk.transferleistungangular.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,15 +24,10 @@ public class Order extends RestResource {
         // JPA constructor
     }
 
-    public Order(Customer customer, List<Product> products, LocalDate orderDate, boolean active) {
-        this.customer = customer;
-        this.products = products;
-        this.orderDate = orderDate;
-        this.active = active;
-    }
-
-    public Order(long id, Customer customer, List<Product> products, LocalDate orderDate, boolean active) {
-        super(id);
+    public Order(@JsonProperty("customer") Customer customer,
+                 @JsonProperty("products") List<Product> products,
+                 @JsonProperty("orderDate") LocalDate orderDate,
+                 @JsonProperty("active") boolean active) {
         this.customer = customer;
         this.products = products;
         this.orderDate = orderDate;

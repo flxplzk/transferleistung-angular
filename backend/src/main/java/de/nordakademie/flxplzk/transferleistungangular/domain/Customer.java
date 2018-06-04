@@ -1,5 +1,7 @@
 package de.nordakademie.flxplzk.transferleistungangular.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -10,25 +12,17 @@ public class Customer extends RestResource {
     private String lastName;
     @ManyToOne
     private Address address;
-    private boolean active;
 
     private Customer() {
         // JPA constructor
     }
 
-    public Customer(String firstName, String lastName, Address address, boolean active) {
+    public Customer(@JsonProperty("firstName") final String firstName,
+                    @JsonProperty("lastName") final String lastName, Address address,
+                    @JsonProperty("active") final boolean active) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.active = active;
-    }
-
-    public Customer(long id, String firstName, String lastName, Address address, boolean active) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.active = active;
     }
 
     public String getFirstName() {
@@ -55,11 +49,4 @@ public class Customer extends RestResource {
         this.address = address;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }
