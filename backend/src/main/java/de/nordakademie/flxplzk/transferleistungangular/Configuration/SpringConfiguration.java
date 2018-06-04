@@ -1,4 +1,4 @@
-package de.nordakademie.flxplzk.transferleistungangular;
+package de.nordakademie.flxplzk.transferleistungangular.Configuration;
 
 import de.nordakademie.flxplzk.transferleistungangular.domain.Customer;
 import de.nordakademie.flxplzk.transferleistungangular.domain.Order;
