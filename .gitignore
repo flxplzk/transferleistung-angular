@@ -27,5 +27,5 @@
 
 /backend/target/
 /frontend/target/
-/frontend/node/
-/frontend/node_modules/
+/frontend/src/main/frontend/node/
+/frontend/src/main/frontend/node_modules/
