@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @Entity
 public class Product extends RestResource {
 
-    private String name;
+    private String description;
     private long priceInCents;
     private boolean active;
 
@@ -15,20 +15,20 @@ public class Product extends RestResource {
         // JPA Constructor
     }
 
-    public Product(@JsonProperty("name") final String name,
+    public Product(@JsonProperty("description") final String description,
                    @JsonProperty("priceInCents") final long priceInCents,
                    @JsonProperty("active") final boolean active) {
-        this.name = name;
+        this.description = description;
         this.priceInCents = priceInCents;
         this.active = active;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public long getPriceInCents() {
