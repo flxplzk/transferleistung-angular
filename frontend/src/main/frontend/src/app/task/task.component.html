@@ -1,0 +1,14 @@
+<div class="fade-in task-list-entry" [ngClass]="{selected : selected}" (click)="select()">
+  <div class="row">
+    <div class="col-xs-11">
+      <span>
+        <a [routerLink]="['./edit', task.id]" (click)="$event.stopPropagation();">{{task.title}}</a>
+      </span>
+      <br>
+      <small>{{task.description}}</small>
+    </div>
+    <div class="col-xs-1">
+      <span (click)="delete(); $event.stopPropagation()" class="glyphicon glyphicon-trash trash"></span>
+    </div>
+  </div>
+</div>

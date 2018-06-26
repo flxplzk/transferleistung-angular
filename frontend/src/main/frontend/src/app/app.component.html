@@ -1,3 +1,36 @@
-<h1>
- {{ title }}
-</h1>
+<div class="container">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project Manager</a>
+      </div>
+      <div class="collapse navbar-collapse" id="mynavbar">
+
+        <ul class="nav navbar-nav" style="float: right">
+          <li>
+            <a href="#">
+              <span class="badge">
+                  In Bearbeitung: {{numberInProgress}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>
+<div class="content">
+  <div id="left">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="right">
+    <router-outlet name="right"></router-outlet>
+  </div>
+</div>

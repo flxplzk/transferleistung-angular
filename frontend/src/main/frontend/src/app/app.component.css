@@ -1,0 +1,24 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+.content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+.right {
+  float: right;
+  width: 300px;
+}
+.left {
+  float: left;
+  width: calc(100% - 300px);
+}

@@ -1,0 +1,52 @@
+div.task-list-entry, a.task-list-entry {
+  padding: 8px;
+  width: 525px;
+  border-radius: 2px;
+  border: lightgrey solid 1px;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.marked {
+  background: lightgrey;
+}
+
+span {
+  cursor: pointer;
+}
+a {
+  font-size: x-large;
+  font-weight: 700;
+}
+small {
+  color: grey;
+}
+
+.trash {
+  padding-top: 18px;
+  font-size: 17px;
+  margin-left: -10px;
+}
+
+.selected {
+  background-color: aliceblue;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:0.5s;
+  -moz-animation-duration:0.5s;
+  animation-duration:0.5s;
+}
