@@ -34,3 +34,18 @@ export const stateTexts = {
   'TEST': 'Im Test',
   'COMPLETED': 'Abgeschlossen'
 };
+
+export function createInitialTask(): Task {
+  return {
+    tags: [],
+    state: states[0]
+  };
+}
+
+export const statesAsObjects  = [{ name: 'BACKLOG', text: 'Backlog'},
+  { name: 'IN_PROGRESS', text: 'In Bearbeitung'},
+  { name: 'TEST', text: 'Test'},
+  { name: 'COMPLETED', text: 'Abgeschlossen'}];
+
+
+

@@ -1,35 +1,44 @@
 package de.nordakademie.flxplzk.transferleistungangular.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-public class Task extends RestResource {
-
+public class Task {
+    @Id
+    @GeneratedValue
+    private long id;
     private String title;
     private String description;
-    @Enumerated(value = EnumType.STRING)
-    private TaskStatus taskStatus;
-    @Enumerated(value = EnumType.STRING)
-    private TaskPriority taskPriority;
-    private LocalDate deadLineDate;
-    private LocalDate creationDate;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Tag> tags;
+    private boolean favorite;
+    private String state;
 
-    public Task(String title) {
-        this.title = title;
+    public Task() {
     }
 
-    public Task(final String title, final  String description, final TaskStatus taskStatus,
-                final TaskPriority taskPriority, final LocalDate deadLineDate,
-                final LocalDate creationDate) {
+    public Task(String title, String description, List<Tag> tags, boolean favorite, String state) {
         this.title = title;
         this.description = description;
-        this.taskStatus = taskStatus;
-        this.taskPriority = taskPriority;
-        this.deadLineDate = deadLineDate;
-        this.creationDate = creationDate;
+        this.tags = tags;
+        this.favorite = favorite;
+        this.state = state;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -48,35 +57,27 @@ public class Task extends RestResource {
         this.description = description;
     }
 
-    public TaskStatus getTaskStatus() {
-        return taskStatus;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setTaskStatus(TaskStatus taskStatus) {
-        this.taskStatus = taskStatus;
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
-    public TaskPriority getTaskPriority() {
-        return taskPriority;
+    public boolean isFavorite() {
+        return favorite;
     }
 
-    public void setTaskPriority(TaskPriority taskPriority) {
-        this.taskPriority = taskPriority;
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
-    public LocalDate getDeadLineDate() {
-        return deadLineDate;
+    public String getState() {
+        return state;
     }
 
-    public void setDeadLineDate(LocalDate deadLineDate) {
-        this.deadLineDate = deadLineDate;
-    }
-
-    public LocalDate getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
+    public void setState(String state) {
+        this.state = state;
     }
 }

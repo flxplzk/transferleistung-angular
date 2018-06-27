@@ -1,3 +1,70 @@
-<p>
-  edit-task works!
-</p>
+<h2 *ngIf="!task.id">Neue Aufgabe anlegen</h2>
+<h2 *ngIf="task.id">Aufgabe bearbeiten</h2>
+
+<form (submit)="saveTask()" #form="ngForm" >
+  <div class="form-group" >
+    <label for="title">Titel</label>
+    <input type="text" class="form-control"
+           [(ngModel)]="task.title"
+           name="title"
+           id="title"
+           required minlength="5" maxlength="100"/>
+
+    <show-error text="Titel" path="title"></show-error>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Beschreibung</label>
+    <textarea id="description" class="form-control" name="description" [(ngModel)]="task.description">
+            </textarea>
+    <show-error text="Beschreibung" path="description"></show-error>
+  </div>
+
+  <div  >
+    <div *ngFor="let tag of task.tags; let i = index" >
+      <div class="form-inline form-group">
+        <input class="form-control tag-field"
+               name="tag{{i}}"
+               [(ngModel)]="tag.label"
+               minlength="3">
+
+        <button class="btn btn-danger"
+                (click)="removeTag(i)">
+          Tag entfernen
+        </button>
+        <show-error text="Tag" path="tag{{i}}"></show-error>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success"
+            (click)="addTag()" >
+      +
+    </button>
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <select id="state" name="state" [(ngModel)]="task.state" class="form-control">
+      <optgroup *ngFor="let group of model.stateGroups"  [label]="group.label">
+        <option *ngFor="let state of group.states" [value]="state">
+          {{model.stateTexts[state]}}
+        </option>
+      </optgroup>
+    </select>
+  </div>
+
+
+  <button id="cancel"
+          (click)="cancel()"
+          class="btn btn-default">
+    Abbrechen
+  </button>
+
+  <button id="save"
+          type="submit"
+          class="btn btn-default"
+          [disabled]="!form.valid">
+    Aufgabe speichern
+  </button>
+</form>

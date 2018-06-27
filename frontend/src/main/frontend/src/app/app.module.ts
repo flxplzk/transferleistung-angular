@@ -8,12 +8,14 @@ import {TaskService} from "./service/task.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TaskStore} from "./service/task.store";
 import {appRouting, routingComponents} from "./app.routing";
+import { ShowErrorComponent } from './show-error/show-error.component';
 
 @NgModule({
   declarations: [
     routingComponents,
     AppComponent,
-    TaskComponent
+    TaskComponent,
+    ShowErrorComponent
   ],
   imports: [
     appRouting,

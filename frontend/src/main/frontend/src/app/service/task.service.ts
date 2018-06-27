@@ -6,11 +6,10 @@ import {LOAD, ADD, EDIT, REMOVE, TaskStore} from "./task.store";
 import {tap, map} from "rxjs/operators"
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
-const BASE_URL = `http://localhost:3000/api/tasks/`;
+const BASE_URL = '/api/tasks/';
 
 @Injectable()
 export class TaskService {
-
   tasks$: Observable<Task[]>;
 
   constructor(private httpClient: HttpClient, private taskStore: TaskStore) {
@@ -19,7 +18,10 @@ export class TaskService {
 
   findTasks(query: string): Observable<Task[]> {
     this.httpClient.get<Task[]>(BASE_URL, {})
-      .subscribe(tasks => this.taskStore.dispatch({type: LOAD, data: tasks}));
+      .pipe(
+        tap(tasks => this.taskStore.dispatch({type: LOAD, data: tasks}))
+      )
+      .subscribe(_ => {});
     return this.tasks$;
   }
 
