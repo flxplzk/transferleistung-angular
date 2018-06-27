@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../../../target/frontend/angular",
+      "outDir": "../../../target/frontend",
       "assets": [
         "assets",
         "favicon.ico"
