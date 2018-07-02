@@ -7,9 +7,6 @@ export const appRoutes: Routes = [
   {path: 'tasks/*', redirectTo: '/tasks'},
   {path: '**', redirectTo: '/tasks', pathMatch: 'full'}
   ];
-
-  /** Redirect Konfigurationen **/
-
 export const appRouting = RouterModule.forRoot(appRoutes);
 
 export const routingComponents = [TasksComponent,  ...tasksRoutingComponents];

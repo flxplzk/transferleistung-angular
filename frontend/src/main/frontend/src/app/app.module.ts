@@ -11,24 +11,12 @@ import {appRouting, routingComponents} from "./app.routing";
 import { ShowErrorComponent } from './show-error/show-error.component';
 
 @NgModule({
-  declarations: [
-    routingComponents,
-    AppComponent,
-    TaskComponent,
-    ShowErrorComponent
-  ],
-  imports: [
-    appRouting,
-    BrowserModule,
-    FormsModule,BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    TaskService,
-    TaskStore,
-    HttpClient],
+  declarations: [routingComponents, AppComponent,
+    TaskComponent, ShowErrorComponent],
+  imports: [appRouting, BrowserModule,
+    FormsModule,BrowserModule, FormsModule,
+    ReactiveFormsModule, HttpClientModule],
+  providers: [TaskService, TaskStore, HttpClient],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
