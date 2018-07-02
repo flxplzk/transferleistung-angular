@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskComponentDesign</title>
+</head>
+<body>
+<vaadin-css-layout css=".layout-with-border {
+            border: 1px solid black;
+        }" style-name="layout-with-border" width="100%" margin="false" spacing="false">
+    <vaadin-horizontal-layout margin="false" width="100%" style-name="layout-with-border">
+        <vaadin-vertical-layout margin="false" width="100%" :expand="1">
+            <vaadin-label _id="title"/>
+            <vaadin-label _id="description" style-name="borderless"/>
+        </vaadin-vertical-layout>
+        <vaadin-button _id="trashButton" :middle :right/>
+    </vaadin-horizontal-layout>
+</vaadin-css-layout>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskView</title>
+</head>
+<body>
+<vaadin-vertical-layout size-full>
+    <vaadin-label style-name="h2 bold">Meine Aufgaben</vaadin-label>
+    <vaadin-horizontal-layout margin-top="false"
+                              margin-left="false"
+                              margin-bottom="false"
+                              margin-right="false"
+                              width="100%">
+        <vaadin-text-field _id="searchTerm"
+                           :expand="1"
+                           width="100%"
+                           placeholder="enter search ..."/>
+        <vaadin-button _id="searchButton"
+                       :middle
+                       :right>suchen</vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout _id="tasksContainer"
+                            margin-top="false"
+                            margin-left="false"
+                            margin-bottom="false"
+                            margin-right="false"
+                            size-full
+                            :expand="1"
+                            spacing="true"/>
+    <vaadin-button _id="newTaskButton"
+                   style-name="friendly"
+                   :bottom
+                   :right> Neue Aufgabe anlegen
+    </vaadin-button>
+</vaadin-vertical-layout>
+</body>
+</html>

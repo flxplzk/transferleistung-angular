@@ -58,7 +58,7 @@
 
         <resources>
             <resource>
-                <directory>target/frontend</directory>
+                <directory>target/frontend/angular</directory>
                 <targetPath>static</targetPath>
             </resource>
         </resources>
